@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+
+{% block title %} Tendencias {% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/tendencia2.jpg' %}{% endblock %}s
+
+{% block headers %} 
+    <h1>SuperStar</h1>
+    <span class="subheading">Tendencias del momento</span>
+    
+{% endblock %}
+ 
+ {% block content %} 
+<div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Podrás encontrar todo tipo de zapato para tu deporte favorito a la medida de tu pies,
+          cómodos, de buena calidad y al alcance de tu bolsillo, porque nosotros nos preocupamos
+          por el bienestar de tus pies y de tu bolsillo</p>
+        </div>
+      </div>
+    </div>
+	<style>
+        .contenido {
+            padding: 20px; /* Espacio interno para el contenido */
+            border: 5px solid #ccc; /* Borde para el contenedor */
+            margin: 20px; /* Margen exterior para separar de otros elementos */
+			max-height: 700px; /* Altura máxima del contenedor */
+            overflow: auto;
+        }
+    </style>
+	<div class="contenido">
+    {% for project in projects %}
+<!-- Contenido Principal -->  
+    
+			<div class="row project" >  	
+				<div class="col-lg-3 col-md-4 offset-lg-1">
+					<img class="img-fluid" src="{{ project.image.url }}" alt="">
+				</div>
+				<div class="col-lg-7 col-md-8">
+					<h2 class="section-heading title">{{ project.title }}</h2>   
+				<p>{{ project.description }}</p>
+				<p> {{project.precio}} $</p>
+                				<button name = "button"> Añadir </button>
+
+				{% if project.link %}
+					<p><a href="{{project.link}}">Más información</a></p>
+				{% endif %}  
+                </div>
+			</div>
+	{% endfor %}
+	</div>
+    
+        {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+
+{% block title %} Acerca de {% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/conjunto.jpg' %}{% endblock %}s
+
+{% block headers %} 
+    <h1>Acerca de</h1>
+    <span class="subheading">Nuestra Marca</span>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">   
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+          <img class="img-fluid avatar" src="{% static 'core/img/barat.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-7 col-md-8">
+          <h2 class="section-heading">Nosotros</h2>   
+          <p>Nacido en... lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio.</p>
+        </div>
+      </div>  
+    </div>
+    {% for project in projects %}
+<!-- Contenido Principal -->
+			<div class="row project">  	
+				<div class="col-lg-3 col-md-4 offset-lg-1">
+					<img class="img-fluid" src="{{ project.image.url }}" alt="">
+				</div>
+				<div class="col-lg-7 col-md-8">
+					<h2 class="section-heading title">{{ project.title }}</h2>   
+				<p>{{ project.description }}</p>
+				{% if project.link %}
+					<p><a href="{{project.link}}">Más información</a></p>
+				{% endif %}  
+				</div>
+			</div>
+	{% endfor %}
+{% endblock %}

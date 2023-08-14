@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+
+{% block title %} Portada {% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/logoadidas.jpg' %}{% endblock %}s
+
+{% block headers %} 
+    <h1>SuperStar</h1>
+    <span class="subheading">Venta de Calzado Deportivo</span>
+{% endblock %}
+ 
+ {% block content %} 
+<div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Podrás encontrar todo tipo de zapato para tu deporte favorito a la medida de tu pies,
+          cómodos, de buena calidad y al alcance de tu bolsillo, porque nosotros nos preocupamos
+          por el bienestar de tus pies y de tu bolsillo</p>
+        </div>
+      </div>
+    </div>
+        {% endblock %}
